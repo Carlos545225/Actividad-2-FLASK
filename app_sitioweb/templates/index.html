@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container py-5">
+      <div class="row">
+        <!-- Primera tarjeta -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{{ url_for('static', filename='img/img_1.jpg') }}" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+              <h5 class="card-title">Título 1</h5>
+              <p class="card-text">Descripción breve de la tarjeta 1.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Segunda tarjeta -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{{ url_for('static', filename='img/img_2.jpg') }}" class="card-img-top" alt="Imagen 2">
+            <div class="card-body">
+              <h5 class="card-title">Título 2</h5>
+              <p class="card-text">Descripción breve de la tarjeta 2.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tercera tarjeta -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{{ url_for('static', filename='img/img_3.jpg') }}" class="card-img-top" alt="Imagen 3">
+            <div class="card-body">
+              <h5 class="card-title">Título 3</h5>
+              <p class="card-text">Descripción breve de la tarjeta 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="container py-5">
+        <h1 class="text-center">Equipo de Trabajo</h1>
+        <table class="table table-hover table-bordered">
+            <thead class="table-light">
+              <tr class="table-primary">
+                <th class="table-primary" scope="col">#</th>
+                <th class="table-primary" scope="col">Nombre</th>
+                <th class="table-primary" scope="col">Cargo</th>
+                <th class="table-primary" scope="col">Correo</th>
+                <th class="table-primary" scope="col">URL del Perfil</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-light">
+                <th scope="row">1</th>
+                <td>Carlos Correa</td>
+                <td>Gerente de Marketing</td>
+                <td>carlos.correa@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/carlos-correa" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">2</th>
+                <td>Ana Gómez</td>
+                <td>Diseñadora Web</td>
+                <td>ana.gomez@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/ana-gomez" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">3</th>
+                <td>Jorge Martínez</td>
+                <td>Desarrollador Backend</td>
+                <td>jorge.martinez@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/jorge-martinez" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">4</th>
+                <td>Laura Pérez</td>
+                <td>Especialista en SEO</td>
+                <td>laura.perez@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/laura-perez" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">5</th>
+                <td>Juan López</td>
+                <td>Analista de Datos</td>
+                <td>juan.lopez@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/juan-lopez" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">6</th>
+                <td>Elena Ríos</td>
+                <td>Community Manager</td>
+                <td>elena.rios@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/elena-rios" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">7</th>
+                <td>Andrés Silva</td>
+                <td>Administrador de Sistemas</td>
+                <td>andres.silva@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/andres-silva" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+              <tr class="table-light">
+                <th scope="row">8</th>
+                <td>Sofía Torres</td>
+                <td>Especialista en Contenido</td>
+                <td>sofia.torres@compania.com</td>
+                <td class="text-center"><a href="https://compania.com/sofia-torres" target="_blank"><i class="bi bi-person"></i></a></td>
+              </tr>
+            </tbody>
+          </table>          
+    </div>
+{% endblock %}
