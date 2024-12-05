@@ -1,0 +1,242 @@
+<div class="row justify-content-center">
+  <div class="col-md-12 mb-2 d-flex justify-content-between align-items-center">
+    <div>
+      {% if(dataLogin.tipoLogin == 1) %}
+      <p class="text-left">¡Bienvenido <strong>{{ dataLogin.nombre }}</strong>! 🎮 Nivel: <strong>Pro-gamer.😎</strong></p>
+      {% else %}
+      <p class="text-left">¡Bienvenido <strong>{{ dataLogin.nombre }}</strong>! 🎮 Nivel: <strong>Gamer-Noob.😅</strong></p>
+      {% endif %}
+    </div>
+    <div id="reloj" class="text-right" style="font-size: 1.2rem; font-weight: bold;">
+    </div>
+  </div>
+
+  <!-- Tarjetas de desempeño y estadísticas -->
+  <div class="row w-100 justify-content-center">
+    <!-- Tarjeta 1 -->
+    <div class="col-md-5 mb-4">
+      <div class="dashboard-card">
+        <div class="dashboard-header">
+          <span class="title">Desempeño del Jugador</span>
+          <div class="level">Desempeño: <strong>Alto</strong></div>
+        </div>
+        <div class="dashboard-info">
+          <div class="stat">
+            <span>Victorias:</span>
+            <span class="highlight">150</span>
+          </div>
+          <div class="stat">
+            <span>Derrotas:</span>
+            <span class="highlight">50</span>
+          </div>
+          <div class="stat">
+            <span>K/D Ratio:</span>
+            <span class="highlight">3.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="col-md-5 mb-4">
+      <div class="dashboard-card">
+        <div class="dashboard-header">
+          <span class="title">Estadísticas del Jugador</span>
+          <div class="level">Nivel: <strong>32</strong></div>
+        </div>
+        <div class="dashboard-info">
+          <div class="stat">
+            <span>Juego Favorito:</span>
+            <span class="highlight">ShadowQuest</span>
+          </div>
+          <div class="stat">
+            <span>Logros Completados:</span>
+            <span class="highlight">87%</span>
+          </div>
+          <div class="stat">
+            <span>XP Semanal:</span>
+            <span class="highlight">12,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row w-100 justify-content-center">
+    <!-- Tarjeta 1: Gráfico de Ventas -->
+    <div class="col-md-5 mb-4">
+      <div class="dashboard-card" style="height: 350px;">
+        <div class="dashboard-header">
+          <span class="title">Estadísticas de Ventas</span>
+          <div class="level">Actualizado: <strong>Hoy</strong></div>
+        </div>
+        <div class="dashboard-info d-flex justify-content-center align-items-center" style="height: 80%;">
+          <!-- Gráfico dinámico -->
+          <canvas id="salesChart" width="100%" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Tarjeta 2: Contador de Juegos Jugados -->
+    <div class="col-md-5 mb-4">
+      <div class="dashboard-card" style="height: 350px;">
+        <div class="dashboard-header">
+          <span class="title">Juegos Jugados</span>
+          <div class="level">Hasta ahora: <strong><span id="gamesCount">13</span></strong></div>
+        </div>
+        <div class="dashboard-info d-flex justify-content-center align-items-center" style="height: 80%;">
+          <!-- Contador dinámico -->
+          <div style="text-align: center;">
+            <h1 id="animatedCounter" style="font-size: 5rem; color: white;">0</h1>
+            <p style="color: rgb(255, 255, 255);">Total de partidas completadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Agrega Chart.js para el gráfico -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Configuración del gráfico
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'bar', // Gráfico de barras
+      data: {
+        labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+        datasets: [{
+          label: 'Ventas Semanales',
+          data: [200, 450, 300, 500, 400, 700, 600],
+          backgroundColor: 'rgba(255, 255, 255, 0.5)', // Color de barras blanco translúcido
+          borderColor: 'rgba(255, 255, 255, 1)',       // Bordes blancos
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white' // Color del texto de la leyenda
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white' // Color del texto en eje X
+            },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: 'white' // Color del texto en eje Y
+            },
+          },
+        },
+      },
+    });
+  
+    // Animación del contador de juegos jugados
+    const gamesPlayed = 12345; // Total de juegos jugados
+    const counterElement = document.getElementById('animatedCounter');
+    let currentCount = 0;
+  
+    const interval = setInterval(() => {
+      currentCount += Math.ceil(gamesPlayed / 100); // Incrementa gradualmente
+      if (currentCount >= gamesPlayed) {
+        currentCount = gamesPlayed; // Asegúrate de no exceder el total
+        clearInterval(interval);
+      }
+      counterElement.textContent = currentCount.toLocaleString(); // Formatea con comas
+    }, 50);
+  </script>
+  
+  
+  <!-- Tarjeta de juegos en oferta -->
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-10">
+      <div class="dashboard-card">
+        <div class="wrapper">
+          <div class="dashboard-header">
+            <span class="title">🎮 En Oferta Ahora</span>
+          </div>
+          <div class="dashboard-info">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Juego</th>
+                    <th>Descuento</th>
+                    <th>Precio Original</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Horizon Forbidden West</td>
+                    <td><span class="badge bg-success">70% OFF</span></td>
+                    <td>$50.00</td>
+                  </tr>
+                  <tr>
+                    <td>Spider-Man: Miles Morales</td>
+                    <td><span class="badge bg-warning">50% OFF</span></td>
+                    <td>$40.00</td>
+                  </tr>
+                  <tr>
+                    <td>Death Stranding</td>
+                    <td><span class="badge bg-danger">60% OFF</span></td>
+                    <td>$30.00</td>
+                  </tr>
+                  <tr>
+                    <td>Ghost of Tsushima</td>
+                    <td><span class="badge bg-info">40% OFF</span></td>
+                    <td>$60.00</td>
+                  </tr>
+                  <tr>
+                    <td>God of War Ragnarök</td>
+                    <td><span class="badge bg-primary">30% OFF</span></td>
+                    <td>$60.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    // Función para actualizar el reloj con fecha y hora
+    function actualizarReloj() {
+      const reloj = document.getElementById('reloj');
+      const fecha = new Date();
+  
+      // Obtener los valores de fecha y hora
+      const dia = fecha.getDate();
+      const mes = fecha.getMonth() + 1; // Los meses comienzan desde 0
+      const año = fecha.getFullYear();
+      let horas = fecha.getHours();
+      let minutos = fecha.getMinutes();
+      let segundos = fecha.getSeconds();
+  
+      // Añadir 0 en caso de que los minutos, segundos, día o mes sean menores a 10
+      minutos = minutos < 10 ? '0' + minutos : minutos;
+      segundos = segundos < 10 ? '0' + segundos : segundos;
+      const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      
+      // Formato de la fecha y hora
+      const fechaTexto = dia + ' ' + meses[mes - 1] + ' ' + año;
+      const horaTexto = horas + ':' + minutos + ':' + segundos;
+  
+      // Mostrar fecha y hora
+      reloj.textContent = fechaTexto + ' | ' + horaTexto;
+    }
+  
+    // Actualizar el reloj cada segundo
+    setInterval(actualizarReloj, 1000);
+  </script>
+  
+</div>

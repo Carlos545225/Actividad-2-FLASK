@@ -1,0 +1,93 @@
+<!---Mi alertas-->
+{% if (typeAlert == 1) %}
+<div class="toast_alert active animated-toast" style="background-color: #e6f4ff; color: #0056b3;">
+    <div class="toast_alert-content">
+        <i class="bi bi-check check" style="color: #0056b3;"></i>
+
+        <div class="message">
+            <span class="text text-1" style="font-weight: bold; color: #0056b3;">Felicitaciones 😃</span>
+            <span class="text text-2" style="color: #4a90e2;">{{ msjAlert }}</span>
+        </div>
+    </div>
+    <i class="bi bi-x close" style="color: #0056b3;"></i>
+    <div class="progress active" style="background-color: #99c2ff;"></div>
+</div>
+{% endif %}
+
+{% if(typeAlert == 0) %}
+<div class="toast_alert active animated-toast" style="background-color: #f8d7da; color: #721c24;">
+    <div class="toast_alert-content">
+        <i class="bi bi-x-circle check" style="color: #721c24;"></i>
+
+        <div class="message">
+            <span class="text text-1" style="font-weight: bold; color: #721c24;">Error 😱</span>
+            <span class="text text-2" style="color: #f5c6cb;">{{ msjAlert }}</span>
+        </div>
+    </div>
+    <i class="bi bi-x close" style="color: #721c24;"></i>
+    <div class="progress active" style="background-color: #f1b0b7;"></div>
+</div>
+{% endif %}
+
+<style>
+/* Animaciones de entrada y salida */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(30px); }
+}
+
+.animated-toast {
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.toast_alert.active {
+    animation: fadeIn 1s ease-out, fadeOut 1s ease-out 3s;
+}
+
+.toast_alert.active .progress {
+    animation: progressAnimation 3s linear;
+}
+
+@keyframes progressAnimation {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.toast_alert .close {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.toast_alert .close:hover {
+    transform: rotate(90deg);
+}
+
+.toast_alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toast_alert .message {
+    display: flex;
+    flex-direction: column;
+}
+
+.toast_alert .message .text-1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.toast_alert .message .text-2 {
+    font-size: 14px;
+}
+</style>
+
+
+<!---Fin Alertas-->

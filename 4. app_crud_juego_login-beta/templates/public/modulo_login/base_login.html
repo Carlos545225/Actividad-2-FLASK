@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block Login %}{% endblock %}</title>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{{url_for('static', filename ='assets/imgs/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename ='assets/imgs/logo.png')}}" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+
+
+    <!--fuente-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/menu.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/pace_loader.css') }}">
+    <!-- Toastr - Alerts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/custom_alert.css') }}">
+</head>
+<body>
+
+    {% block body %}
+
+
+    {% endblock %}
+
+    <footer class="text-center bg-body-tertiary ">
+        <div class="text-center text-white p-4" style="background-color: #005187;">
+          © 2024 Copyright Carlos Eduardo Correa Baloco
+        </div>
+      </footer>
+<script src="{{ url_for('static', filename ='assets/js/jquery-3.6.0.js') }}"></script>
+<script src="{{ url_for('static', filename ='assets/js/menu.js') }}"></script>
+<script src="{{ url_for('static', filename ='assets/js/pace.min.js') }}"></script>
+
+<!-- Alert -->
+<script src="{{ url_for('static', filename ='assets/js/custom_alert.js') }}"></script>
+<script src="{{ url_for('static', filename ='assets/js/scripts.js') }}"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

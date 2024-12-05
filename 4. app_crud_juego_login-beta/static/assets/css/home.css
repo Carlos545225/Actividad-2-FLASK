@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+* {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+table, th, td, caption {
+  font-family: inherit; 
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ffffff !important;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.form-label {
+    margin-bottom: 0px !important;
+}
+
+.btn-send {
+    border-radius: 25px;
+    background-color: rgb(61, 122, 255);
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.btn-send:hover {
+    background-color: rgb(61, 122, 255);
+    color: #ffffff !important;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#title {
+    color: rgb(61, 122, 255);
+    text-align: center;
+    margin-top: -80px;
+    font-weight: 600;
+}
+.text-darkblue{
+    color: rgb(61, 122, 255);
+}
+
+#link_forgot_password {
+    color: rgb(61, 122, 255);
+    padding: 0px 15px
+}
+
+#link_sign_up {
+    color: #004171;
+}
+
+#link_sign_up:hover {
+    color: rgb(61, 122, 255);
+    font-weight: 500;
+}
+
+#link_forgot_password:hover {
+    color: rgb(61, 122, 255);
+    font-weight: 500;
+}
+
+#styleLogin {
+    margin-top: 50px !important;
+    background: #f9f9f9;
+    padding: 30px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.bi-arrow-left-short {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+#here{
+    color: #004171;
+}
+#here:hover{
+    color: rgb(61, 122, 255) !important;
+}
+.styFormDashboard{
+    background: #f9f9f9;
+    padding: 30px 40px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+.logoLogin{
+    width: 100%;
+    height:100px; 
+    width:100px;
+    border-radius:50%;
+    position: relative;
+    top: -80px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1000px) {
+    #styleLogin{
+        margin: 0 auto;
+        width: 35% !important;
+    }
+}
+@media (min-width: 280px) and (max-width: 680px) {
+    #styleLogin{
+        margin: 0 auto;
+        width: 80% !important;
+    }
+}
+
+       /* Custom Back to Top Button Styles */
+       #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #0071bd;
+        color: white;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    #back-to-top:hover {
+        background-color: #003a5c;
+    }

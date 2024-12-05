@@ -1,0 +1,259 @@
+.recipe {
+  margin: 0 auto;
+    width: 100%;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  
+  .recipe-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .recipe-header span {
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+  
+  .rating {
+    margin-left: auto;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-left: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMS45ODY4NSA1MTEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExNC41OTM3NSA0OTEuMTQwNjI1Yy01LjYwOTM3NSAwLTExLjE3OTY4OC0xLjc1LTE1LjkzMzU5NC01LjE4NzUtOC44NTU0NjgtNi40MTc5NjktMTIuOTkyMTg3LTE3LjQ0OTIxOS0xMC41ODIwMzEtMjguMDkzNzVsMzIuOTM3NS0xNDUuMDg5ODQ0LTExMS43MDMxMjUtOTcuOTYwOTM3Yy04LjIxMDkzOC03LjE2Nzk2OS0xMS4zNDc2NTYtMTguNTE5NTMyLTcuOTc2NTYyLTI4LjkwNjI1IDMuMzcxMDkzLTEwLjM2NzE4OCAxMi41NDI5NjgtMTcuNzA3MDMyIDIzLjQwMjM0My0xOC43MTA5MzhsMTQ3Ljc5Njg3NS0xMy40MTc5NjggNTguNDMzNTk0LTEzNi43NDYwOTRjNC4zMDg1OTQtMTAuMDQ2ODc1IDE0LjEyMTA5NC0xNi41MzUxNTYgMjUuMDIzNDM4LTE2LjUzNTE1NiAxMC45MDIzNDMgMCAyMC43MTQ4NDMgNi40ODgyODEgMjUuMDIzNDM3IDE2LjUxMTcxOGw1OC40MzM1OTQgMTM2Ljc2OTUzMiAxNDcuNzczNDM3IDEzLjQxNzk2OGMxMC44ODI4MTMuOTgwNDY5IDIwLjA1NDY4OCA4LjM0Mzc1IDIzLjQyNTc4MiAxOC43MTA5MzggMy4zNzEwOTMgMTAuMzY3MTg3LjI1MzkwNiAyMS43MzgyODEtNy45NTcwMzIgMjguOTA2MjVsLTExMS43MDMxMjUgOTcuOTQxNDA2IDMyLjkzNzUgMTQ1LjA4NTkzOGMyLjQxNDA2MyAxMC42Njc5NjgtMS43MjY1NjIgMjEuNjk5MjE4LTEwLjU3ODEyNSAyOC4wOTc2NTYtOC44MzIwMzEgNi4zOTg0MzctMjAuNjA5Mzc1IDYuODkwNjI1LTI5LjkxMDE1NiAxLjMwMDc4MWwtMTI3LjQ0NTMxMi03Ni4xNjAxNTYtMTI3LjQ0NTMxMyA3Ni4yMDMxMjVjLTQuMzA4NTk0IDIuNTU4NTk0LTkuMTA5Mzc1IDMuODYzMjgxLTEzLjk1MzEyNSAzLjg2MzI4MXptMTQxLjM5ODQzOC0xMTIuODc1YzQuODQzNzUgMCA5LjY0MDYyNCAxLjMwMDc4MSAxMy45NTMxMjQgMy44NTkzNzVsMTIwLjI3NzM0NCA3MS45Mzc1LTMxLjA4NTkzNy0xMzYuOTQxNDA2Yy0yLjIxODc1LTkuNzQ2MDk0IDEuMDg5ODQzLTE5LjkyMTg3NSA4LjYyMTA5My0yNi41MTU2MjVsMTA1LjQ3MjY1Ny05Mi41LTEzOS41NDI5NjktMTIuNjcxODc1Yy0xMC4wNDY4NzUtLjkxNzk2OS0xOC42ODc1LTcuMjM0Mzc1LTIyLjYxMzI4MS0xNi40OTIxODhsLTU1LjA4MjAzMS0xMjkuMDQ2ODc1LTU1LjE0ODQzOCAxMjkuMDY2NDA3Yy0zLjg4MjgxMiA5LjE5NTMxMi0xMi41MjM0MzggMTUuNTExNzE4LTIyLjU0Njg3NSAxNi40Mjk2ODdsLTEzOS41NjI1IDEyLjY3MTg3NSAxMDUuNDY4NzUgOTIuNWM3LjU1NDY4NyA2LjYxMzI4MSAxMC44NTkzNzUgMTYuNzY5NTMxIDguNjIxMDk0IDI2LjUzOTA2MmwtMzEuMDYyNSAxMzYuOTM3NSAxMjAuMjc3MzQzLTcxLjkxNDA2MmM0LjMwODU5NC0yLjU1ODU5NCA5LjEwOTM3Ni0zLjg1OTM3NSAxMy45NTMxMjYtMy44NTkzNzV6bS04NC41ODU5MzgtMjIxLjg0NzY1NnMwIC4wMjM0MzctLjAyMzQzOC4wNDI5Njl6bTE2OS4xMjg5MDYtLjA2MjUuMDIzNDM4LjA0Mjk2OWMwLS4wMjM0MzggMC0uMDIzNDM4LS4wMjM0MzgtLjA0Mjk2OXptMCAwIiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+PC9nPjwvc3ZnPg==) no-repeat left 2px;
+    background-size: 14px;
+  }
+
+  
+  .recipe-info span {
+    color: #FFFFFF;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .time {
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-left: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTM0Ny4yMTYsMzAxLjIxMWwtNzEuMzg3LTUzLjU0VjEzOC42MDljMC0xMC45NjYtOC44NjQtMTkuODMtMTkuODMtMTkuODNjLTEwLjk2NiwwLTE5LjgzLDguODY0LTE5LjgzLDE5LjgzdjExOC45NzggICAgYzAsNi4yNDYsMi45MzUsMTIuMTM2LDcuOTMyLDE1Ljg2NGw3OS4zMTgsNTkuNDg5YzMuNTY5LDIuNjc3LDcuNzM0LDMuOTY2LDExLjg3OCwzLjk2NmM2LjA0OCwwLDExLjk5Ny0yLjcxNywxNS44ODQtNy45NTIgICAgQzM1Ny43NjYsMzIwLjIwOCwzNTUuOTgxLDMwNy43NzUsMzQ3LjIxNiwzMDEuMjExeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMjU2LDBDMTE0LjgzMywwLDAsMTE0LjgzMywwLDI1NnMxMTQuODMzLDI1NiwyNTYsMjU2czI1Ni0xMTQuODMzLDI1Ni0yNTZTMzk3LjE2NywwLDI1NiwweiBNMjU2LDQ3Mi4zNDEgICAgYy0xMTkuMjc1LDAtMjE2LjM0MS05Ny4wNjYtMjE2LjM0MS0yMTYuMzQxUzEzNi43MjUsMzkuNjU5LDI1NiwzOS42NTljMTE5LjI5NSwwLDIxNi4zNDEsOTcuMDY2LDIxNi4zNDEsMjE2LjM0MSAgICBTMzc1LjI3NSw0NzIuMzQxLDI1Niw0NzIuMzQxeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=) no-repeat left 2px;
+    background-size: 14px;
+  }
+
+  .dashboard-card {
+    background: linear-gradient(145deg, #1e293b, #334155);
+    border-radius: 10px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #475569;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-header .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .dashboard-header .level {
+    background: #475569;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-info .stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #475569;
+  }
+
+  .dashboard-info .stat:last-child {
+    border-bottom: none;
+  }
+
+  .dashboard-info .highlight {
+    font-weight: bold;
+    color: #38bdf8;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+  }
+
+  .dashboard-card {
+    background: linear-gradient(145deg, #0f172a, #1e293b);
+    border-radius: 10px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #475569;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-header .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .dashboard-header .level {
+    background: #475569;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-info .stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #475569;
+  }
+
+  .dashboard-info .stat:last-child {
+    border-bottom: none;
+  }
+
+  .dashboard-info .highlight {
+    font-weight: bold;
+    color: #38bdf8;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+  }
+
+  .dashboard-card {
+    background: linear-gradient(145deg, #005187, #003e5c);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #475569;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-header .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .dashboard-info .table {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .badge {
+    font-weight: bold;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+  }
+
+  .table {
+    background-color: #1e293b; /* Fondo oscuro similar al de la card */
+    color: white; /* Texto blanco para destacar */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+
+  .thead-dark th {
+    background-color: #334155; /* Fondo oscuro para el encabezado */
+    color: #ffffff; /* Color blanco para el texto */
+    font-weight: bold; /* Negrita para los encabezados */
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo más claro para filas impares */
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo más oscuro cuando se pasa el mouse */
+    cursor: pointer;
+  }
+
+  /* Estilo para el fondo transparente de las filas */
+  .table tbody tr {
+    background-color: transparent; /* Fondo transparente para las filas */
+  }
+
+  /* Estilo para los <td> dentro de las filas */
+  .table tbody td {
+    background-color: #005187; /* Fondo oscuro para las celdas dentro de las filas */
+    color: #FFFFFF;
+    border: 1px solid #475569; /* Borde para las celdas */
+  }
+
+  .badge {
+    font-weight: bold;
+    color: #ffffff; /* Asegura que el texto de las etiquetas tenga buen contraste */
+  }
+
+  .badge.bg-success {
+    background-color: #38bdf8; /* Fondo azul claro para el descuento del 70% */
+  }
+
+  .badge.bg-warning {
+    background-color: #fbbf24; /* Fondo amarillo para el descuento del 50% */
+  }
+
+  .badge.bg-danger {
+    background-color: #ef4444; /* Fondo rojo para el descuento del 60% */
+  }
+
+  .badge.bg-info {
+    background-color: #3b82f6; /* Fondo azul para el descuento del 40% */
+  }
+
+  .badge.bg-primary {
+    background-color: #2563eb; /* Fondo azul oscuro para el descuento del 30% */
+  }

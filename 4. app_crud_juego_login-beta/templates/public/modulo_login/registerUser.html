@@ -1,0 +1,88 @@
+<form name="formRegisterClient" id="formRegisterClient" action="{{ url_for('registerUser') }}" method="POST" autocomplete="off" class="container-fluid px-4">
+    <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+        <img src="{{ url_for('static', filename='assets/imgs/logo_login.png') }}" alt="Logo" class="me-3" width="80" height="80">
+        <h3 class="text-primary mb-0">Crear cuenta</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="nombreInput" name="nombre" placeholder="Primer Nombre" autofocus required>
+                <label for="nombreInput">Primer Nombre</label>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="apellidoInput" name="apellido" placeholder="Primer Apellido" required>
+                <label for="apellidoInput">Primer Apellido</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email" required>
+        <label for="emailInput">Escribir Email</label>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="form-floating">
+                <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password" required>
+                <label for="passwordInput">Password</label>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="form-floating">
+                <input type="password" class="form-control" id="repeatPasswordInput" name="repite_password" placeholder="Repeat Password" required>
+                <label for="repeatPasswordInput">Repetir Password</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-1">
+            <div class="form-floating">
+                <select class="form-select" id="sexoSelect" name="sexo"  required>
+                    <option value="" selected>--- Seleccione ---</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+                <label for="sexoSelect">Sexo</label>
+            </div>
+        </div>
+        <div class="col-12 my-2"></div>
+        <div class="form-floating mb-4">
+            <select class="form-select" id="paisSelect" name="pais" required>
+                <option value="" selected>--- Seleccione ---</option>
+                {% for country in dataPaises %}
+                    <option value="{{ country.name_country }}">{{ country.name_country }}</option>
+                {% endfor %}
+            </select>
+            <label for="paisSelect">País de Nacimiento</label>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="mb-3">
+            <label class="form-label">Te gustan los Videojuegos?</label>
+            <div class="d-flex">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="radio" name="te_gustan_los_videojuegos" id="siRadio" value="Si" checked>
+                    <label class="form-check-label" for="siRadio">Si</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="te_gustan_los_videojuegos" id="noRadio" value="No">
+                    <label class="form-check-label" for="noRadio">No</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Crear Ahora!</button>
+
+    <div class="mb-12 text-center">
+        <span>
+            Ya tengo cuenta,
+        </span>
+        <a href="#" class="volverViewLogin">Volver</a>
+    </div>
+</form>

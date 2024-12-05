@@ -1,0 +1,58 @@
+{% extends 'public/dashboard/home.html' %}
+{% block title %}Perfil | {{ dataUser.nombre }} {% endblock %}
+
+{% block body %}
+<div class="row justify-content-md-center mb-5">
+    <div class="col-md-10 cajaLogin styFormDashboard">
+        <h2 class="text-center titleDashboard mt-3">Ver mi Perfil <hr> </h2>
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" value="{{ dataUser.nombre }}" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" class="form-control" value="{{ dataUser.apellido }}" readonly>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" value="{{ dataUser.email }}" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">País</label>
+                    <input type="text" class="form-control" value="{{ dataUser.pais }}" readonly>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Sexo</label>
+                    <input type="text" class="form-control" value="{{ dataUser.sexo }}" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Fecha de Registro</label>
+                    <input type="text" class="form-control" value="{{ dataUser.create_at }}" readonly>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label">Te gustan los videojuegos</label>
+                    <input type="text" class="form-control" value="{{ 'Sí' if dataUser.te_gustan_los_videojuegos == 'Si' else 'No' }}" readonly>
+                </div>
+            </div>
+            <div class="row text-center justify-content-md-center mt-4">
+                <div class="col-md-12 mt-3 mb-3">
+                    <a href="{{ url_for('inicio') }}" type="submit" class="btn btn-primary btn-send">Volver</a>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
