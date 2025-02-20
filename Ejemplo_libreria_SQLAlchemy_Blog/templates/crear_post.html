@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Post</title>
+</head>
+<body>
+    <h1>Crear Nuevo Post</h1>
+    <form method="post">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo"><br><br>
+
+        <label for="contenido">Contenido:</label><br>
+        <textarea id="contenido" name="contenido" rows="5" cols="50"></textarea><br><br>
+
+        <button type="submit">Guardar Post</button>
+    </form>
+    <a href="{{ url_for('index') }}">Cancelar</a>
+</body>
+</html>

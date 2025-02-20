@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog</h1>
+    <a href="{{ url_for('crear_post') }}">Crear Nuevo Post</a>
+    <hr>
+    {% for post in posts %}
+        <h2>{{ post.titulo }}</h2>
+        <p>{{ post.contenido }}</p>
+        <p>Publicado el: {{ post.fecha_creacion }}</p>
+        <hr>
+    {% endfor %}
+</body>
+</html>
