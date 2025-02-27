@@ -1,0 +1,245 @@
+{% extends 'templates_dashboard/base_dashboard.html' %}
+{% block content %}
+<div class="container">
+    <main class="py-5">
+        <h1 class="titulo mb-4">Gestión de Médicos</h1>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="registro-tab" data-bs-toggle="tab" data-bs-target="#registro" type="button" role="tab" aria-controls="registro" aria-selected="true">
+              <i class="bi bi-person-plus-fill"></i> Registro de Médicos
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="especialidades-tab" data-bs-toggle="tab" data-bs-target="#especialidades" type="button" role="tab" aria-controls="especialidades" aria-selected="false">
+              <i class="bi bi-star-fill"></i> Especialidades y Horarios
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="asignacion-tab" data-bs-toggle="tab" data-bs-target="#asignacion" type="button" role="tab" aria-controls="asignacion" aria-selected="false">
+              <i class="bi bi-calendar-plus-fill"></i> Asignación de Pacientes
+            </button>
+          </li>
+        </ul>
+
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="registro" role="tabpanel" aria-labelledby="registro-tab">
+            <h2 class="titulo mt-4 mb-3">Registro de Médicos</h2> <!-- Agregado mt-4 y mb-3 -->
+            <form>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre completo">
+              </div>
+              <div class="mb-3">
+                <label for="identificacion" class="form-label">Identificación/Colegiado</label>
+                <input type="text" class="form-control" id="identificacion" placeholder="Ingrese el número de identificación">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingrese el correo electrónico">
+              </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el número de teléfono">
+                </div>
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+
+              <hr>
+              <h3 class="titulo mt-4 mb-3">Lista de Médicos</h3> <!-- Agregado mt-4 y mb-3 -->
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Identificación</th>
+                      <th>Email</th>
+                      <th>Teléfono</th>
+                      <th>Acciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>Dr. Juan Pérez</td>
+                      <td>12345678</td>
+                      <td>juan.perez@example.com</td>
+                      <td>555-1234</td>
+                      <td>
+                          <button class="btn btn-sm btn-warning">Editar</button>
+                          <button class="btn btn-sm btn-danger">Eliminar</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Dra. María Gómez</td>
+                      <td>87654321</td>
+                      <td>maria.gomez@example.com</td>
+                      <td>555-5678</td>
+                      <td>
+                          <button class="btn btn-sm btn-warning">Editar</button>
+                          <button class="btn btn-sm btn-danger">Eliminar</button>
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          <div class="tab-pane fade" id="especialidades" role="tabpanel" aria-labelledby="especialidades-tab">
+            <h2 class="titulo mt-4 mb-3">Especialidades y Horarios</h2> <!-- Agregado mt-4 y mb-3 -->
+              <form>
+                  <div class="mb-3">
+                      <label for="medico" class="form-label">Seleccionar Médico</label>
+                      <select class="form-select" id="medico">
+                          <option value="">Seleccione un médico</option>
+                          <option value="1">Dr. Juan Pérez</option>
+                          <option value="2">Dra. María Gómez</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="especialidad">Especialidad</label>
+                    <select class="form-select" id="especialidad" name="especialidad">
+                        <option value="">Seleccione una especialidad</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="oftalmologia">Oftalmología</option>
+                        <option value="otorrinolaringologia">Otorrinolaringología</option>
+                        <option value="ginecologia">Ginecología</option>
+                        <option value="urologia">Urología</option>
+                        <option value="traumatologia">Traumatología</option>
+                        <option value="endocrinologia">Endocrinología</option>
+                        <option value="gastroenterologia">Gastroenterología</option>
+                        <option value="neumologia">Neumología</option>
+                        <option value="reumatologia">Reumatología</option>
+                        <option value="psiquiatria">Psiquiatría</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="oncologia">Oncología</option>
+                        <option value="hematologia">Hematología</option>
+                        <option value="alergologia">Alergología</option>
+                        <option value="nefrologia">Nefrología</option>
+                        <option value="cirugia_general">Cirugía General</option>
+                        <option value="cirugia_plastica">Cirugía Plástica</option>
+                        <option value="medicina_interna">Medicina Interna</option>
+                        <option value="radiologia">Radiología</option>
+                        <option value="anestesiologia">Anestesiología</option>
+                        <option value="geriatria">Geriatría</option>
+                        <option value="nutricion">Nutrición</option>
+                    </select>
+                </div>
+
+                  <div class="mb-3">
+                      <label class="form-label">Horarios</label>
+                      <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                              <th>Día</th>
+                              <th>Hora Inicio</th>
+                              <th>Hora Fin</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>Lunes</td>
+                              <td><input type="time" class="form-control"></td>
+                              <td><input type="time" class="form-control"></td>
+                          </tr>
+                          <tr>
+                              <td>Martes</td>
+                              <td><input type="time" class="form-control"></td>
+                              <td><input type="time" class="form-control"></td>
+                          </tr>
+                          <tr>
+                            <td>Miercoles</td>
+                            <td><input type="time" class="form-control"></td>
+                            <td><input type="time" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>jueves</td>
+                            <td><input type="time" class="form-control"></td>
+                            <td><input type="time" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Viernes</td>
+                            <td><input type="time" class="form-control"></td>
+                            <td><input type="time" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Sabado</td>
+                            <td><input type="time" class="form-control"></td>
+                            <td><input type="time" class="form-control"></td>
+                        </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Guardar Horario</button>
+              </form>
+          </div>
+
+          <div class="tab-pane fade" id="asignacion" role="tabpanel" aria-labelledby="asignacion-tab">
+            <h2 class="titulo mt-4 mb-3">Asignación de Pacientes</h2> <!-- Agregado mt-4 y mb-3 -->
+              <form>
+                  <div class="mb-3">
+                      <label for="paciente" class="form-label">Paciente</label>
+                      <input type="text" class="form-control" id="paciente" placeholder="Buscar paciente...">
+                  </div>
+                  <div class="mb-3">
+                      <label for="medicoAsignado" class="form-label">Médico Asignado</label>
+                      <select class="form-select" id="medicoAsignado">
+                          <option value="">Seleccione un médico</option>
+                          <option value="1">Dr. Juan Pérez</option>
+                          <option value="2">Dra. María Gómez</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="fechaCita" class="form-label">Fecha de Cita</label>
+                      <input type="date" class="form-control" id="fechaCita">
+                  </div>
+                  <div class="mb-3">
+                      <label for="horaCita" class="form-label">Hora de Cita</label>
+                      <input type="time" class="form-control" id="horaCita">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Asignar Cita</button>
+              </form>
+
+              <hr>
+              <h3 class="titulo mt-4 mb-3">Citas Asignadas</h3>
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                      <th>Paciente</th>
+                      <th>Médico</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Acciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>Paciente 1</td>
+                      <td>Dr. Juan Pérez</td>
+                      <td>2024-01-20</td>
+                      <td>10:00</td>
+                      <td>
+                          <button class="btn btn-sm btn-warning">Editar</button>
+                          <button class="btn btn-sm btn-danger">Cancelar</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Paciente 2</td>
+                      <td>Dra. María Gómez</td>
+                      <td>2024-01-21</td>
+                      <td>14:00</td>
+                      <td>
+                          <button class="btn btn-sm btn-warning">Editar</button>
+                          <button class="btn btn-sm btn-danger">Cancelar</button>
+                      </td>
+                  </tr>
+              </tbody>
+              </table>
+          </div>
+        </div>
+    </main>
+  </div>
+{% endblock %}
