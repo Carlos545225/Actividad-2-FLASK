@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MediCitas Plus: Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icono.png')}}" type="image/x-icon">
+  </head>
+  <body>
+    <audio src="{{ url_for('static', filename='audio/Audio_Login.mp3')}}" autoplay loop></audio>
+  <!-- Encabezado (Header) -->
+  <header class="bg-azul-personalizado text-white py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href=""><h2 class="archivo-black-regular-titulo text-white m-0">MEDICITAS Plus</h2>
+          <p class="dancing-script-text m-0">Servicios Médicos a Tiempo</p></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">
+                Notificaciones
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mi Cuenta
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ url_for('perfil_admin') }}">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <!-- Contenido Principal -->
+    <div class="container-fluid">
+      <div class="row">
+  
+        <!-- Menú Lateral (Sidebar) -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active text-azul-personalizado" aria-current="page" href="{{ url_for('dashboard_admin') }}">
+                   <i class="bi bi-house-door me-2"></i>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-azul-personalizado" href="{{ url_for('agregar_medico') }}">
+                 <i class="bi bi-person-fill me-2"></i>
+                  Médicos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-azul-personalizado" href="{{ url_for('agregar_paciente') }}">
+                  <i class="bi bi-people-fill me-2"></i>
+                  Pacientes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-azul-personalizado" href="{{ url_for('crear_cita_admin') }}">
+                  <i class="bi bi-calendar-event me-2"></i>
+                  Agenda y Citas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-azul-personalizado" href="{{ url_for('crear_factura_admin') }}">
+                  <i class="bi bi-currency-dollar me-2"></i>
+                  Facturación 
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link text-azul-personalizado" href="{{ url_for('reportes_admin') }}">
+                  <i class="bi bi-graph-up me-2"></i>
+                  Reportes
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+  
+        <!-- Contenido Principal (Main Content) -->
+      {% block content %}
+
+
+      {% endblock %}
+    </div>
+    </div>
+  <footer class="bg-azul-personalizado text-white py-3 mt-5">
+    <div class="container text-center">
+      <p>© 2024 MEDICITAS Plus.  Todos los derechos reservados.</p>
+    </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

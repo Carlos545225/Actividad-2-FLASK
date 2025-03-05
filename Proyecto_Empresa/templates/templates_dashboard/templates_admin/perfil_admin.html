@@ -1,0 +1,52 @@
+{% extends 'templates_dashboard/templates_admin/dashboard_admin.html' %}
+{% block modulo_principal %}
+<h2>Perfil</h2>
+<form id="adminFormulario" class="card shadow mb-4" action="" method="post">
+    <div class="card-body">
+        <h5 class="card-title">Perfil del Administrador</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="number" class="form-control" id="telefono" name="telefono">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label">Nueva Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="repetir_contraseña" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="repetir_contraseña" name="repetir_contraseña">
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
+            <a href="{{ url_for('dashboard_admin') }}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

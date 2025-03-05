@@ -1,0 +1,51 @@
+{% extends 'templates_login/base.html' %}
+{% block content %}
+<!-- Contenedor principal -->
+<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="contenedor_login shadow-lg w-100" style="max-width: 800px;">
+        <div class="row no-gutters">
+            <!-- Sección del logo e información -->
+            <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2 text-center">
+                <h1 class="dm-serif-text-regular-italic-bn color--white">Bienvenido</h1>
+                <div>
+                    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo_login.png')}}" alt="Logo de la empresa" class="img-fluid" style="max-width: 200px; border-radius: 50%;" width="130" height="130"></a>
+                </div>
+                <p class="dm-serif-text-regular-italic-bn text-white">Ingresa tus credenciales para acceder a tu cuenta.</p>
+            </div>
+
+            <!-- Sección del formulario de inicio de sesión -->
+            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+                <form action="{{ url_for('login') }}" method="post" class="contact-form form-validate dm-serif-text-regular-italic-bn" novalidate>
+                    <fieldset>
+                        <legend class="mb-4">Iniciar Sesión</legend>
+                        
+                        <!-- Campo de correo electrónico -->
+                        <section class="mb-3">
+                            <label class="required-field" for="email">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="usuario@correo.com" required>
+                        </section>
+                        
+                        <!-- Campo de contraseña -->
+                        <section class="mb-4">
+                            <label class="required-field" for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+                        </section>
+                        
+                        <!-- Botón de inicio de sesión -->
+                        <section class="mt-4 mb-3">
+                            <button type="submit" name="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                        </section>
+
+                        <!-- Enlace para recuperar contraseña -->
+                        <section class="">
+                            <a href="{{ url_for('recuperar') }}" class="text-link">¿Olvidaste tu contraseña?</a>
+                        </section>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,45 @@
+{% extends 'templates_dashboard/templates_medicos/agenda.html' %}
+{% block modulo_de_formulario %}
+<form id="citaFormulario" class="card shadow mb-4" action="" method="post">
+    <div class="card-body">
+      <h5 class="card-title">Editar Cita</h5>
+      <div class="mb-3">
+        <label for="paciente" class="form-label">Paciente</label>
+        <select class="form-select" id="paciente" name="paciente" required>
+          <option value="">Seleccione un paciente</option>
+          <option value="1">Juan Pérez</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="medico" class="form-label">Médico</label>
+        <select class="form-select" id="medico" name="medico" required>
+          <option value="">Seleccione un médico</option>
+          <option value="1">Dra. Ana Gómez - Cardiología</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" required>
+      </div>
+      <div class="mb-3">
+        <label for="hora" class="form-label">Hora</label>
+        <input type="time" class="form-control" id="hora" name="hora" required>
+      </div>
+      <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo de la consulta</label>
+        <textarea class="form-control" id="motivo" name="motivo" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="estado_cita" class="form-label">Estado de la Cita</label>
+        <select class="form-select" id="estado_cita" name="estado_cita" required>
+          <option value="">Seleccione</option>
+          <option value="1">Pendiente</option>
+          <option value="2">Reprogramada</option>
+          <option value="3">Completada</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <a href="{{ url_for('agenda') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+{% endblock %}
