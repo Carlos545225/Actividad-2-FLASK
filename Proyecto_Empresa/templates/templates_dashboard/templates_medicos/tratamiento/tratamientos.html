@@ -1,0 +1,119 @@
+{% extends 'templates_dashboard/templates_medicos/dashboard_medico.html' %}
+{% block modulo_principal %}
+<!-- Debug info -->
+<div class="d-none">
+    Número de tratamientos: {{ tratamientos|length }}
+    {% for t in tratamientos %}
+        Tratamiento: {{ t.id }} - {{ t.paciente.nombre }}
+    {% endfor %}
+</div>
+<!-- End debug info -->
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary bg-gradient text-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-clipboard2-pulse me-2"></i>Gestión de Tratamientos
+                        </h5>
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative me-3" style="width: 300px;">
+                                <i class="bi bi-search text-muted position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                                <input type="text" class="form-control ps-5" placeholder="Buscar tratamiento..." id="searchInput">
+                            </div>
+                            <a href="{{ url_for('agregar_tratamiento') }}" class="btn btn-light">
+                                <i class="bi bi-plus-circle me-2"></i>Agregar Tratamiento
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle" id="tablaTratamientos">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Paciente</th>
+                                    <th>Fecha</th>
+                                    <th>Motivo</th>
+                                    <th>Diagnóstico</th>
+                                    <th>Tratamiento</th>
+                                    <th>Receta</th>
+                                    <th>Notas</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for t in tratamientos %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ t.paciente.nombre }}</td>
+                                    <td>{{ t.fecha.strftime('%d/%m/%Y') }}</td>
+                                    <td>{{ t.motivo }}</td>
+                                    <td>{{ t.diagnostico }}</td>
+                                    <td>{{ t.tratamiento }}</td>
+                                    <td>{{ t.receta }}</td>
+                                    <td>{{ t.notas }}</td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ url_for('editar_tratamiento', id=t.id) }}" 
+                                               class="btn btn-warning btn-sm text-dark me-1">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            <form class="ms-1" action="{{ url_for('eliminar_tratamiento', id=t.id) }}" method="POST" style="display: inline;" id="formEliminar{{ t.id }}">
+                                                <button type="button" class="btn btn-danger btn-sm text-dark btn-eliminar-tratamiento"
+                                                        data-id="{{ t.id }}" 
+                                                        data-nombre="{{ t.paciente.nombre|e }}">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn-eliminar-tratamiento').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const nombrePaciente = this.getAttribute('data-nombre');
+            
+            Swal.fire({
+                title: '¿Eliminar tratamiento?',
+                text: `¿Está seguro de que desea eliminar el tratamiento de ${nombrePaciente}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`formEliminar${id}`).submit();
+                }
+            });
+        });
+    });
+});
+</script>
+
+<script src="{{ url_for('static', filename='js/pagina.js') }}"></script>
+
+{% endblock %}

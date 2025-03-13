@@ -1,0 +1,156 @@
+{% extends 'templates_dashboard/templates_admin/dashboard_admin.html' %}
+{% block modulo_principal %}
+<div class="main-content-area p-3">
+<form id="medicoFormulario" class="card shadow mb-4" action="{{ url_for('editar_medico', id_medico=medico.id) }}" method="post">
+  <div class="card-body">
+    <h5 class="card-title" id="formularioTitulo">Editar Médico</h5>
+    <div class="row">
+          <div class="col-md-6">
+          <div class="mb-3">
+              <label for="nombre" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required value="{{ medico.nombre }}" placeholder="Ingrese los nombres" tabindex="1">
+          </div>
+          </div>
+          <div class="col-md-6">
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required value="{{ medico.apellido }}" placeholder="Ingrese los apellidos" tabindex="2">
+          </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+                <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                <select class="form-control" id="tipo_documento" name="tipo_documento" tabindex="3">
+                    <option value="">Seleccione...</option>
+                    <option value="CC" {% if medico.tipo_documento == 'CC' %}selected{% endif %}>Cédula de Ciudadanía</option>
+                    <option value="CE" {% if medico.tipo_documento == 'CE' %}selected{% endif %}>Cédula de Extranjería</option>
+                    <option value="PA" {% if medico.tipo_documento == 'PA' %}selected{% endif %}>Pasaporte</option>
+                </select>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="numero_documento" class="form-label">Numero de Documento</label>
+              <input type="number" class="form-control" id="numero_documento" name="numero_documento" value="{{ medico.numero_documento }}" placeholder="Ejemplo: 1234567890" pattern="[0-9]*" inputmode="numeric" tabindex="4">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="genero" class="form-label">Género</label>
+              <select class="form-control" id="genero" name="genero" required tabindex="5">
+                <option value="">Seleccione...</option>
+                <option value="Masculino" {% if medico.genero == 'Masculino' %}selected{% endif %}>Masculino</option>
+                <option value="Femenino" {% if medico.genero == 'Femenino' %}selected{% endif %}>Femenino</option>
+                <option value="Otro" {% if medico.genero == 'Otro' %}selected{% endif %}>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ medico.email }}" placeholder="ejemplo@correo.com" tabindex="6">
+            </div>
+            </div>
+    </div>
+    <div class="row">
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="telefono" class="form-label">Telefono</label>
+              <input type="number" class="form-control" id="telefono" name="telefono" value="{{ medico.telefono }}" placeholder="Ejemplo: 3001234567" tabindex="7">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="direccion" class="form-label">Direccion</label>
+              <input type="text" class="form-control" id="direccion" name="direccion" value="{{ medico.direccion }}" placeholder="Ingrese la dirección" tabindex="8">
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+                <label for="especialidad" class="form-label">Especialidad</label>
+                <select class="form-control" id="especialidad" name="especialidad" tabindex="9">
+                    <option value="">Seleccione una especialidad</option>
+                    <option value="alergologia" {% if medico.especialidad == 'Alergología' %}selected{% endif %}>Alergología</option>
+                    <option value="anestesiologia" {% if medico.especialidad == 'Anestesiología' %}selected{% endif %}>Anestesiología</option>
+                    <option value="angiologia" {% if medico.especialidad == 'Angiología' %}selected{% endif %}>Angiología</option>
+                    <option value="cardiologia" {% if medico.especialidad == 'Cardiología' %}selected{% endif %}>Cardiología</option>
+                    <option value="cirugia_cardiovascular" {% if medico.especialidad == 'Cirugía Cardiovascular' %}selected{% endif %}>Cirugía Cardiovascular</option>
+                    <option value="cirugia_general" {% if medico.especialidad == 'Cirugía General' %}selected{% endif %}>Cirugía General</option>
+                    <option value="cirugia_maxilofacial" {% if medico.especialidad == 'Cirugía Maxilofacial' %}selected{% endif %}>Cirugía Maxilofacial</option>
+                    <option value="cirugia_plastica" {% if medico.especialidad == 'Cirugía Plástica' %}selected{% endif %}>Cirugía Plástica</option>
+                    <option value="cirugia_toracica" {% if medico.especialidad == 'Cirugía Torácica' %}selected{% endif %}  >Cirugía Torácica</option>
+                    <option value="cirugia_vascular" {% if medico.especialidad == 'Cirugía Vascular' %}selected{% endif %}>Cirugía Vascular</option>
+                    <option value="dermatologia" {% if medico.especialidad == 'Dermatología' %}selected{% endif %}>Dermatología</option>
+                    <option value="endocrinologia" {% if medico.especialidad == 'Endocrinología' %}selected{% endif %}>Endocrinología</option>
+                    <option value="gastroenterologia" {% if medico.especialidad == 'Gastroenterología' %}selected{% endif %}>Gastroenterología</option>
+                    <option value="geriatria" {% if medico.especialidad == 'Geriatría' %}selected{% endif %}>Geriatría</option>
+                    <option value="ginecologia" {% if medico.especialidad == 'Ginecología y Obstetricia' %}selected{% endif %}>Ginecología y Obstetricia</option>
+                    <option value="hematologia" {% if medico.especialidad == 'Hematología' %}selected{% endif %}>Hematología</option>
+                    <option value="infectologia" {% if medico.especialidad == 'Infectología' %}selected{% endif %}>Infectología</option>
+                    <option value="medicina_deporte" {% if medico.especialidad == 'Medicina del Deporte' %}selected{% endif %}>Medicina del Deporte</option>
+                    <option value="medicina_familiar" {% if medico.especialidad == 'Medicina Familiar' %}selected{% endif %}>Medicina Familiar</option>
+                    <option value="medicina_fisica" {% if medico.especialidad == 'Medicina Física y Rehabilitación' %}selected{% endif %}>Medicina Física y Rehabilitación</option>
+                    <option value="medicina_forense" {% if medico.especialidad == 'Medicina Forense' %}selected{% endif %}>Medicina Forense</option>
+                    <option value="medicina_interna" {% if medico.especialidad == 'Medicina Interna' %}selected{% endif %}>Medicina Interna</option>
+                    <option value="medicina_nuclear" {% if medico.especialidad == 'Medicina Nuclear' %}selected{% endif %}>Medicina Nuclear</option>
+                    <option value="medicina_preventiva" {% if medico.especialidad == 'Medicina Preventiva y Salud Pública' %}selected{% endif %}>Medicina Preventiva y Salud Pública</option>
+                    <option value="nefrologia" {% if medico.especialidad == 'Nefrología' %}selected{% endif %}>Nefrología</option>
+                    <option value="neumologia" {% if medico.especialidad == 'Neumología' %}selected{% endif %}>Neumología</option>
+                    <option value="neurocirugia" {% if medico.especialidad == 'Neurocirugía' %}selected{% endif %}>Neurocirugía</option>
+                    <option value="neurologia" {% if medico.especialidad == 'Neurología' %}selected{% endif %}>Neurología</option>
+                    <option value="nutriologia" {% if medico.especialidad == 'Nutriología' %}selected{% endif %}>Nutriología</option>
+                    <option value="oftalmologia" {% if medico.especialidad == 'Oftalmología' %}selected{% endif %}>Oftalmología</option>
+                    <option value="oncologia" {% if medico.especialidad == 'Oncología' %}selected{% endif %}>Oncología</option>
+                    <option value="ortopedia" {% if medico.especialidad == 'Ortopedia y Traumatología' %}selected{% endif %}>Ortopedia y Traumatología</option>
+                    <option value="otorrinolaringologia" {% if medico.especialidad == 'Otorrinolaringología' %}selected{% endif %}>Otorrinolaringología</option>
+                    <option value="pediatria" {% if medico.especialidad == 'Pediatría' %}selected{% endif %}>Pediatría</option>
+                    <option value="psiquiatria" {% if medico.especialidad == 'Psiquiatría' %}selected{% endif %}>Psiquiatría</option>
+                    <option value="radiologia" {% if medico.especialidad == 'Radiología' %}selected{% endif %}>Radiología</option>
+                    <option value="reumatologia" {% if medico.especialidad == 'Reumatología' %}selected{% endif %}>Reumatología</option>
+                    <option value="toxicologia" {% if medico.especialidad == 'Toxicología' %}selected{% endif %}>Toxicología</option>
+                    <option value="urologia" {% if medico.especialidad == 'Urología' %}selected{% endif %}>Urología</option>
+                </select>
+            </div>
+        </div>
+        
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="registro_medico" class="form-label">Numero de Registro Medico</label>
+              <input type="text" class="form-control" id="registro_medico" name="registro_medico" value="{{ medico.numero_registro }}" placeholder="Ejemplo: 12345-C" tabindex="10">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="años" class="form-label">Años de Experiencia</label>
+              <input type="text" class="form-control" id="años" name="años" value="{{ medico.anios_experiencia }}" placeholder="Ingrese los años de experiencia" tabindex="11">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="contraseña" class="form-label">Nueva Contraseña (dejar en blanco para mantener la actual)</label>
+              <input type="password" class="form-control" id="contraseña" name="contraseña" tabindex="12" placeholder="Mínimo 8 caracteres">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+              <label for="repetir_contraseña" class="form-label">Repetir Nueva Contraseña</label>
+              <input type="password" class="form-control" id="repetir_contraseña" name="repetir_contraseña" tabindex="13" placeholder="Repita la contraseña">
+              </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="md-3">
+              <input type="hidden" class="form-control" name="rol" value="medico">
+            </div>
+          </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <button type="submit" class="btn btn-primary me-2" id="guardarBtn" tabindex="14">Actualizar</button>
+        <a href="{{ url_for('medico_admin') }}" type="reset" class="btn btn-secondary" id="cancelarBtn" tabindex="15">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'templates_dashboard/templates_medicos/agenda.html' %}
+{% block modulo_de_formulario %}
+  <!-- Agenda Médica -->
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Agenda Médica</h5>
+
+      <!-- Filtro por Fecha -->
+      <div class="mb-3">
+        <label for="fechaAgenda" class="form-label">Seleccionar Fecha:</label>
+        <input type="date" class="form-control" id="fechaAgenda" name="fechaAgenda" onchange="filtrarPorFecha(this.value)">
+      </div>
+
+      <!-- Tabla de Citas -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="table-primary">
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Paciente</th>
+              <th>Motivo</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tablaCitas">
+            {% for cita in citas %}
+            <tr class="fila-cita" data-fecha="{{ cita.fecha }}">
+              <td>{{ cita.fecha.strftime('%d/%m/%Y') }}</td>
+              <td>{{ cita.hora_inicio }}</td>
+              <td>{{ cita.paciente_nombre }}</td>
+              <td>{{ cita.motivo }}</td>
+              <td>
+                <span class="badge {% if cita.estado == 'pendiente' %}bg-warning
+                                  {% elif cita.estado == 'confirmada' %}bg-info
+                                  {% elif cita.estado == 'en_progreso' %}bg-primary
+                                  {% elif cita.estado == 'finalizada' %}bg-success
+                                  {% else %}bg-danger{% endif %}">
+                  {{ cita.estado|replace('_', ' ')|title }}
+                </span>
+              </td>
+              <td>
+                <a href="{{ url_for('atender_cita', id_cita=cita.id) }}" class="btn btn-sm btn-primary">
+                  <i class="bi bi-clipboard2-pulse me-1"></i>Atender
+                </a>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="6" class="text-center">No hay citas programadas</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para filtrar por fecha -->
+  <script>
+    function filtrarPorFecha(fecha) {
+      const filas = document.getElementsByClassName('fila-cita');
+      
+      if (!fecha) {
+        // Si no hay fecha seleccionada, mostrar todas las citas
+        Array.from(filas).forEach(fila => {
+          fila.style.display = '';
+        });
+        return;
+      }
+
+      Array.from(filas).forEach(fila => {
+        const fechaCita = fila.getAttribute('data-fecha');
+        if (fechaCita === fecha) {
+          fila.style.display = '';
+        } else {
+          fila.style.display = 'none';
+        }
+      });
+    }
+  </script>
+{% endblock %}
