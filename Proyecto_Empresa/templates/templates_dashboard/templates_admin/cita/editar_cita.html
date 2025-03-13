@@ -1,0 +1,98 @@
+{% extends 'templates_dashboard/templates_admin/dashboard_admin.html' %}
+{% block modulo_principal %}
+<div class="main-content-area p-3">
+  <form id="citaFormulario" class="card shadow mb-4" action="{{ url_for('editar_cita_admin', id_cita=cita.id) }}" method="post">
+    <div class="card-body">
+      <h5 class="card-title" id="formularioTitulo">Editar Cita</h5>
+      
+      <div class="mb-3">
+        <label for="paciente" class="form-label">Paciente</label>
+        <select class="form-select" id="paciente" name="paciente" required>
+          <option value="">Seleccione un paciente</option>
+          {% for paciente in pacientes %}
+          <option value="{{ paciente.id }}" {% if paciente.id == cita.paciente_id %}selected{% endif %}>{{ paciente.nombre }} {{ paciente.apellido }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="medico" class="form-label">Médico</label>
+        <select class="form-select" id="medico" name="medico" required>
+          <option value="">Seleccione un médico</option>
+          {% for medico in medicos %}
+          <option value="{{ medico.id }}" {% if medico.id == cita.medico_id %}selected{% endif %}>{{ medico.nombre }} {{ medico.apellido }} - {{ medico.especialidad }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="servicio" class="form-label">Servicio</label>
+        <select class="form-select" id="servicio" name="servicio" required>
+          <option value="">Seleccione un servicio</option>
+          <option value="Consulta Médica" {% if cita.servicio == 'Consulta Médica' %}selected{% endif %}>Consulta Médica</option>
+          <option value="Medicina General" {% if cita.servicio == 'Medicina General' %}selected{% endif %}>Medicina General</option>
+          <option value="Medicina Interna" {% if cita.servicio == 'Medicina Interna' %}selected{% endif %}>Medicina Interna</option>
+          <option value="Pediatría" {% if cita.servicio == 'Pediatría' %}selected{% endif %}>Pediatría</option>
+          <option value="Ginecología y Obstetricia" {% if cita.servicio == 'Ginecología y Obstetricia' %}selected{% endif %}>Ginecología y Obstetricia</option>
+          <option value="Consulta Odontológica" {% if cita.servicio == 'Consulta Odontológica' %}selected{% endif %}>Consulta Odontológica</option>
+          <option value="Consulta por Telemedicina" {% if cita.servicio == 'Consulta por Telemedicina' %}selected{% endif %}>Consulta por Telemedicina</option>
+          <option value="Servicios de Urgencias" {% if cita.servicio == 'Servicios de Urgencias' %}selected{% endif %}>Servicios de Urgencias</option>
+          <option value="Rayos X" {% if cita.servicio == 'Rayos X' %}selected{% endif %}>Rayos X</option>
+          <option value="Ecografías" {% if cita.servicio == 'Ecografías' %}selected{% endif %}>Ecografías</option>
+          <option value="Resonancia Magnética" {% if cita.servicio == 'Resonancia Magnética' %}selected{% endif %}>Resonancia Magnética</option>
+          <option value="Tomografía Computarizada" {% if cita.servicio == 'Tomografía Computarizada' %}selected{% endif %}>Tomografía Computarizada (TAC)</option>
+          <option value="Mamografía" {% if cita.servicio == 'Mamografía' %}selected{% endif %}>Mamografía</option>
+          <option value="Electrocardiograma" {% if cita.servicio == 'Electrocardiograma' %}selected{% endif %}>Electrocardiograma (ECG)</option>
+          <option value="Vacunación" {% if cita.servicio == 'Vacunación' %}selected{% endif %}>Vacunación</option>
+          <option value="Terapia Física" {% if cita.servicio == 'Terapia Física' %}selected{% endif %}>Terapia Física</option>
+          <option value="Terapia Ocupacional" {% if cita.servicio == 'Terapia Ocupacional' %}selected{% endif %}>Terapia Ocupacional</option>
+          <option value="Psicoterapia" {% if cita.servicio == 'Psicoterapia' %}selected{% endif %}>Psicoterapia</option>
+          <option value="Hospitalización" {% if cita.servicio == 'Hospitalización' %}selected{% endif %}>Hospitalización</option>
+          <option value="Cirugía Ambulatoria" {% if cita.servicio == 'Cirugía Ambulatoria' %}selected{% endif %}>Cirugía Ambulatoria</option>
+          <option value="Planificación Familiar" {% if cita.servicio == 'Planificación Familiar' %}selected{% endif %}>Planificación Familiar</option>
+          <option value="Detección Temprana de Cáncer" {% if cita.servicio == 'Detección Temprana de Cáncer' %}selected{% endif %}>Detección Temprana de Cáncer</option>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha deseada</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" value="{{ cita.fecha }}" required>
+      </div>
+
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="horario_inicio" class="form-label">Hora de inicio</label>
+            <input type="time" class="form-control" id="horario_inicio" name="horario_inicio" value="{{ cita.horario_inicio }}" required>
+          </div>
+          <div class="col-md-6">
+            <label for="horario_fin" class="form-label">Hora de fin</label>
+            <input type="time" class="form-control" id="horario_fin" name="horario_fin" value="{{ cita.horario_fin }}" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo de la consulta</label>
+        <textarea class="form-control" id="motivo" name="motivo" rows="3" required placeholder="Motivo de la consulta">{{ cita.motivo }}</textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="estado" class="form-label">Estado de la cita</label>
+        <select class="form-select" id="estado" name="estado" required>
+          <option value="">Seleccione un estado</option>
+          <option value="pendiente" {% if cita.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
+          <option value="confirmada" {% if cita.estado == 'confirmada' %}selected{% endif %}>Confirmada</option>
+          <option value="en_progreso" {% if cita.estado == 'en_progreso' %}selected{% endif %}>En Progreso</option>
+          <option value="finalizada" {% if cita.estado == 'finalizada' %}selected{% endif %}>Finalizada</option>
+          <option value="cancelada" {% if cita.estado == 'cancelada' %}selected{% endif %}>Cancelada</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="solicitarBtn">Guardar Cambios</button>
+      <a href="{{ url_for('citas_admin') }}" class="btn btn-secondary" id="cancelarBtn">Cancelar</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

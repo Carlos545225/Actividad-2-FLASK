@@ -1,0 +1,67 @@
+.icon-circle {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-primary {
+    background-color: #4e73df !important;
+}
+
+.bg-success {
+    background-color: #1cc88a !important;
+}
+
+.bg-warning {
+    background-color: #f6c23e !important;
+}
+
+#reloj {
+    font-family: 'Digital-7', monospace;
+    font-size: 1.2rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+}
+
+#contador-notificaciones {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    min-width: 1rem;
+    text-align: center;
+}
+
+.notifications-dropdown {
+    min-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-item {
+    white-space: normal;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.text-gray-500 {
+    color: #858796 !important;
+} 

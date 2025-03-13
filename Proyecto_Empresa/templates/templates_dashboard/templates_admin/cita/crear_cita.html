@@ -1,0 +1,98 @@
+{% extends 'templates_dashboard/templates_admin/dashboard_admin.html' %}
+{% block modulo_principal %}
+<div class="main-content-area p-3">
+  <form id="citaFormulario" class="card shadow mb-4" action="{{ url_for('crear_cita_admin') }}" method="post">
+    <div class="card-body">
+      <h5 class="card-title" id="formularioTitulo">Solicitar Nueva Cita</h5>
+      
+      <div class="mb-3">
+        <label for="paciente" class="form-label">Paciente</label>
+        <select class="form-select" id="paciente" name="paciente" required>
+          <option value="">Seleccione un paciente</option>
+          {% for paciente in pacientes %}
+          <option value="{{ paciente.id }}">{{ paciente.nombre }} {{ paciente.apellido }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="medico" class="form-label">Médico</label>
+        <select class="form-select" id="medico" name="medico" required>
+          <option value="">Seleccione un médico</option>
+          {% for medico in medicos %}
+          <option value="{{ medico.id }}">{{ medico.nombre }} {{ medico.apellido }} - {{ medico.especialidad }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="servicio" class="form-label">Servicio</label>
+        <select class="form-select" id="servicio" name="servicio" required>
+          <option value="">Seleccione un servicio</option>
+          <option value="Consulta Médica">Consulta Médica</option>
+          <option value="Medicina General">Medicina General</option>
+          <option value="Medicina Interna">Medicina Interna</option>
+          <option value="Pediatría">Pediatría</option>
+          <option value="Ginecología y Obstetricia">Ginecología y Obstetricia</option>
+          <option value="Consulta Odontológica">Consulta Odontológica</option>
+          <option value="Consulta por Telemedicina">Consulta por Telemedicina</option>
+          <option value="Servicios de Urgencias">Servicios de Urgencias</option>
+          <option value="Rayos X">Rayos X</option>
+          <option value="Ecografías">Ecografías</option>
+          <option value="Resonancia Magnética">Resonancia Magnética</option>
+          <option value="Tomografía Computarizada">Tomografía Computarizada (TAC)</option>
+          <option value="Mamografía">Mamografía</option>
+          <option value="Electrocardiograma">Electrocardiograma (ECG)</option>
+          <option value="Vacunación">Vacunación</option>
+          <option value="Terapia Física">Terapia Física</option>
+          <option value="Terapia Ocupacional">Terapia Ocupacional</option>
+          <option value="Psicoterapia">Psicoterapia</option>
+          <option value="Hospitalización">Hospitalización</option>
+          <option value="Cirugía Ambulatoria">Cirugía Ambulatoria</option>
+          <option value="Planificación Familiar">Planificación Familiar</option>
+          <option value="Detección Temprana de Cáncer">Detección Temprana de Cáncer</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha deseada</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" required>
+      </div>
+
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="horario_inicio" class="form-label">Hora de inicio</label>
+            <input type="time" class="form-control" id="horario_inicio" name="horario_inicio" required>
+          </div>
+          <div class="col-md-6">
+            <label for="horario_fin" class="form-label">Hora de fin</label>
+            <input type="time" class="form-control" id="horario_fin" name="horario_fin" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo de la consulta</label>
+        <textarea class="form-control" id="motivo" name="motivo" rows="3" required placeholder="Motivo de la consulta"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="estado" class="form-label">Estado de la cita</label>
+        <select class="form-select" id="estado" name="estado" required>
+          <option value="">Seleccione un estado</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="confirmada">Confirmada</option>
+          <option value="en_progreso">En Progreso</option>
+          <option value="finalizada">Finalizada</option>
+          <option value="cancelada">Cancelada</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="solicitarBtn">Apartar Cita</button>
+      <a href="{{ url_for('citas_admin') }}" class="btn btn-secondary" id="cancelarBtn">Cancelar</a>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
