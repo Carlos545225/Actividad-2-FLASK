@@ -1,0 +1,68 @@
+{% extends 'templates_dashboard/templates_medicos/dashboard_medico.html' %}
+{% block modulo_principal %}
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary bg-gradient text-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-journal-medical me-2"></i>Historias Clínicas
+                        </h5>
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative me-3" style="width: 300px;">
+                                <i class="bi bi-search text-muted position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                                <input type="text" class="form-control ps-5" placeholder="Buscar paciente..." id="searchInput">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle" id="tablaHistoria">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Grupo Sanguíneo</th>
+                                    <th>EPS</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in pacientes %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ p.nombre }} {{ p.apellido }}</td>
+                                    <td>{{ p.tipo_documento }}: {{ p.numero_documento }}</td>
+                                    <td>{{ p.fecha_nacimiento.strftime('%d/%m/%Y') }}</td>
+                                    <td>{{ p.grupo_sanguineo }}</td>
+                                    <td>{{ p.eps }}</td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ url_for('ver_historia', paciente_id=p.id) }}" 
+                                               class="btn btn-primary btn-sm">
+                                                <i class="bi bi-eye-fill me-1"></i>Ver Historia
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="{{ url_for('static', filename='js/pagina.js') }}"></script>
+
+{% endblock %}

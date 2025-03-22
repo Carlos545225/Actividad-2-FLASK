@@ -1,0 +1,68 @@
+{% extends 'templates_dashboard/templates_medicos/dashboard_medico.html' %}
+{% block modulo_principal %}
+<div class="container-fluid py-4">
+    <form id="tratamientoFormulario" class="card shadow mb-4" action="{{ url_for('editar_tratamiento', id=tratamiento.id) }}" method="post">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-3 text-muted">Información del Paciente</h6>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="paciente_nombre" class="form-label">Nombre del Paciente</label>
+                        <input type="text" class="form-control" id="paciente_nombre" name="paciente_nombre" 
+                               value="{{ paciente.nombre }} {{ paciente.apellido }}" readonly>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="paciente_cedula" class="form-label">Documento del Paciente</label>
+                        <input type="text" class="form-control" id="paciente_cedula" name="paciente_cedula" 
+                               value="{{ paciente.numero_documento }}" readonly>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="paciente_tipo_sangre" class="form-label">Tipo de Sangre</label>
+                        <input type="text" class="form-control" id="paciente_tipo_sangre" name="paciente_tipo_sangre" 
+                               value="{{ paciente.grupo_sanguineo }}" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="card-subtitle mb-3 text-muted">Detalles del Tratamiento</h6>
+
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo de la Consulta</label>
+                <textarea class="form-control" id="motivo" name="motivo" rows="3" required>{{ tratamiento.motivo }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="diagnostico" class="form-label">Diagnóstico</label>
+                <textarea class="form-control" id="diagnostico" name="diagnostico" rows="3" required>{{ tratamiento.diagnostico }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="tratamiento" class="form-label">Tratamiento</label>
+                <textarea class="form-control" id="tratamiento" name="tratamiento" rows="3" required>{{ tratamiento.tratamiento }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="receta" class="form-label">Receta (Medicamentos y Dosis)</label>
+                <textarea class="form-control" id="receta" name="receta" rows="3" 
+                          placeholder="Ej: Paracetamol 500mg cada 8 horas">{{ tratamiento.receta }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="notas" class="form-label">Notas Adicionales</label>
+                <textarea class="form-control" id="notas" name="notas" rows="3" 
+                          placeholder="Información adicional relevante para el paciente">{{ tratamiento.notas }}</textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary me-2" id="guardarBtn">Actualizar Tratamiento</button>
+                <a href="{{ url_for('tratamiento') }}" class="btn btn-secondary" id="cancelarBtn">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

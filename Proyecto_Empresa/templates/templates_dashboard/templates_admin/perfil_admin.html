@@ -1,0 +1,93 @@
+{% extends 'templates_dashboard/templates_admin/dashboard_admin.html' %}
+{% block modulo_principal %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary bg-gradient text-white py-3">
+                    <h5 class="mb-0">
+                        <i class="bi bi-person-circle me-2"></i>Perfil del Administrador
+                    </h5>
+                </div>
+                
+                <div class="card-body">
+                    <form id="adminFormulario" action="{{ url_for('perfil_admin') }}" method="post">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" 
+                                           value="{{ admin.nombre }}" placeholder="Ingrese su nombre" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="apellido" name="apellido" 
+                                           value="{{ admin.apellido }}" placeholder="Ingrese su apellido" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                           value="{{ admin.email }}" placeholder="ejemplo@correo.com" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" 
+                                           value="{{ admin.telefono }}" placeholder="Ej: 3001234567">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <hr class="my-4">
+                                <h6 class="mb-3">Cambiar Contraseña</h6>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contraseña" class="form-label">Nueva Contraseña</label>
+                                    <input type="password" class="form-control" id="contraseña" name="contraseña"
+                                           placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                                    <small class="text-muted">Dejar en blanco para mantener la contraseña actual</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="repetir_contraseña" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control" id="repetir_contraseña" 
+                                           name="repetir_contraseña" autocomplete="new-password">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save me-2"></i>Guardar Cambios
+                                </button>
+                                <a href="{{ url_for('dashboard_admin') }}" class="btn btn-secondary ms-2">
+                                    <i class="bi bi-x-circle me-2"></i>Cancelar
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('adminFormulario').addEventListener('submit', function(e) {
+    const password = document.getElementById('contraseña').value;
+    const confirmPassword = document.getElementById('repetir_contraseña').value;
+    
+    if (password && password !== confirmPassword) {
+        e.preventDefault();
+        alert('Las contraseñas no coinciden');
+    }
+});
+</script>
+{% endblock %}
